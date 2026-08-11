@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Visualizer - Browser History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Stack Visualizer</h1>
+    <p>Browser History Example — Learn LIFO through an interactive app</p>
+  </header>
+
+  <main class="container">
+    <section class="card controls-card">
+      <h2>🌐 Browser</h2>
+      <div class="input-row">
+        <input id="website" type="text" placeholder="Enter a website (e.g., Google)" maxlength="30">
+        <button id="pushBtn" class="primary">PUSH / VISIT</button>
+        <button id="popBtn" class="danger">POP / GO BACK</button>
+        <button id="peekBtn" class="secondary">PEEK / CURRENT</button>
+      </div>
+      <div class="status" id="status">Ready. The stack is empty.</div>
+    </section>
+
+    <section class="grid">
+      <div class="card stack-card">
+        <div class="section-title">
+          <h2>📦 Stack</h2>
+          <span class="counter" id="counter">0 / 5</span>
+        </div>
+        <div class="top-label">TOP ↓</div>
+        <div id="stack" class="stack"></div>
+        <div class="empty-message" id="emptyMessage">
+          Stack is empty<br>
+          <small>Visit a website to PUSH an item.</small>
+        </div>
+      </div>
+
+      <div class="card explanation-card">
+        <h2>💡 Operation Explanation</h2>
+        <div id="operationBadge" class="badge">READY</div>
+        <h3 id="operationTitle">Stack follows LIFO</h3>
+        <p id="operationText">
+          <strong>LIFO</strong> means <strong>Last In, First Out</strong>.
+          The last website you visit is the first one removed when you go back.
+        </p>
+
+        <div class="code-box">
+          <div class="code-title">C concept</div>
+          <pre id="cCode">/* Stack using Array */
+int stack[MAX];
+int top = -1;
+
+/* PUSH */
+top++;
+stack[top] = item;
+
+/* POP */
+item = stack[top];
+top--;</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card history-card">
+      <div class="section-title">
+        <h2>📝 Operation Log</h2>
+        <button id="clearBtn" class="small-btn">Clear</button>
+      </div>
+      <ul id="log"></ul>
+      <p id="noLog" class="muted">No operations yet.</p>
+    </section>
+
+    <section class="card learning-card">
+      <h2>🎓 What students learn</h2>
+      <div class="concepts">
+        <div><strong>PUSH</strong><span>Add an item to TOP</span></div>
+        <div><strong>POP</strong><span>Remove the TOP item</span></div>
+        <div><strong>PEEK</strong><span>View the TOP item</span></div>
+        <div><strong>OVERFLOW</strong><span>Stack is full</span></div>
+        <div><strong>UNDERFLOW</strong><span>Stack is empty</span></div>
+        <div><strong>TOP</strong><span>Position of the latest item</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Stack Visualizer • Educational Demo • Maximum stack size: 5</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
