@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Applications Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Stack Applications Lab</h1>
+  <p>Interactive demonstrations of Stack applications</p>
+</header>
+
+<nav id="tabs">
+
+  <button data-app="reverse">
+    🔄 Reverse List
+  </button>
+
+  <button data-app="brackets">
+    🔤 Parentheses Matching
+  </button>
+
+  <button data-app="postfix">
+    🧮 Postfix Evaluation
+  </button>
+
+  <button data-app="prefix">
+    🧮 Prefix Evaluation
+  </button>
+
+  <button data-app="infixPostfix">
+    ➡️ Infix → Postfix
+  </button>
+
+  <button data-app="infixPrefix">
+    ➡️ Infix → Prefix
+  </button>
+
+  <button data-app="memory">
+    🧠 Function Call Stack
+  </button>
+
+  <button data-app="recursion">
+    🔁 Recursion
+  </button>
+
+</nav>
+
+<main>
+
+<!-- REVERSE LIST -->
+
+<section id="reverse" class="app">
+
+  <h2>🔄 Reverse a List Using Stack</h2>
+
+  <p>
+    A stack follows <b>LIFO – Last In, First Out</b>.
+    Push all elements and then pop them to reverse the list.
+  </p>
+
+  <input
+    id="reverseInput"
+    value="A,B,C,D,E"
+  >
+
+  <button onclick="reverseList()">
+    Reverse Using Stack
+  </button>
+
+  <div id="reverseOutput"></div>
+
+</section>
+
+
+<!-- PARENTHESES -->
+
+<section id="brackets" class="app">
+
+  <h2>🔤 Parentheses / Bracket Matching</h2>
+
+  <p>
+    A stack can be used to check whether brackets are properly matched.
+  </p>
+
+  <input
+    id="bracketInput"
+    value="(A+B)*[C-{D+E}]"
+  >
+
+  <button onclick="checkBrackets()">
+    Check Expression
+  </button>
+
+  <div id="bracketOutput"></div>
+
+</section>
+
+
+<!-- POSTFIX -->
+
+<section id="postfix" class="app">
+
+  <h2>🧮 Postfix Expression Evaluation</h2>
+
+  <p>
+    Example:
+    <code>5 6 2 + * 12 4 / -</code>
+  </p>
+
+  <input
+    id="postfixInput"
+    value="5 6 2 + * 12 4 / -"
+  >
+
+  <button onclick="evaluatePostfix()">
+    Evaluate
+  </button>
+
+  <div id="postfixOutput"></div>
+
+</section>
+
+
+<!-- PREFIX -->
+
+<section id="prefix" class="app">
+
+  <h2>🧮 Prefix Expression Evaluation</h2>
+
+  <p>
+    Example:
+    <code>- * 5 + 6 2 / 12 4</code>
+  </p>
+
+  <input
+    id="prefixInput"
+    value="- * 5 + 6 2 / 12 4"
+  >
+
+  <button onclick="evaluatePrefix()">
+    Evaluate
+  </button>
+
+  <div id="prefixOutput"></div>
+
+</section>
+
+
+<!-- INFIX POSTFIX -->
+
+<section id="infixPostfix" class="app">
+
+  <h2>➡️ Infix to Postfix Conversion</h2>
+
+  <p>
+    Example:
+    <code>A+B*(C-D)</code>
+  </p>
+
+  <input
+    id="infixPostfixInput"
+    value="A+B*(C-D)"
+  >
+
+  <button onclick="convertInfixPostfix()">
+    Convert
+  </button>
+
+  <div id="infixPostfixOutput"></div>
+
+</section>
+
+
+<!-- INFIX PREFIX -->
+
+<section id="infixPrefix" class="app">
+
+  <h2>➡️ Infix to Prefix Conversion</h2>
+
+  <p>
+    Example:
+    <code>A+B*(C-D)</code>
+  </p>
+
+  <input
+    id="infixPrefixInput"
+    value="A+B*(C-D)"
+  >
+
+  <button onclick="convertInfixPrefix()">
+    Convert
+  </button>
+
+  <div id="infixPrefixOutput"></div>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section id="memory" class="app">
+
+  <h2>🧠 Systematic Memory Management</h2>
+
+  <p>
+    Function calls are stored in the system call stack.
+    Each function call creates a stack frame.
+  </p>
+
+  <button onclick="memoryDemo()">
+    Run Function Call Demo
+  </button>
+
+  <div id="memoryOutput"></div>
+
+</section>
+
+
+<!-- RECURSION -->
+
+<section id="recursion" class="app">
+
+  <h2>🔁 Recursion Using Stack</h2>
+
+  <p>
+    Recursive function calls are stored in the call stack.
+  </p>
+
+  <input
+    id="factorialInput"
+    type="number"
+    min="1"
+    max="8"
+    value="5"
+  >
+
+  <button onclick="runFactorial()">
+    Show Call Stack
+  </button>
+
+  <div id="recursionOutput"></div>
+
+</section>
+
+
+<!-- CONCEPT BOX -->
+
+<section class="concept">
+
+  <h2>🎓 Stack Basics</h2>
+
+  <div class="conceptGrid">
+
+    <div>
+      <b>LIFO</b>
+      <p>Last In, First Out</p>
+    </div>
+
+    <div>
+      <b>PUSH</b>
+      <p>Add an element to TOP</p>
+    </div>
+
+    <div>
+      <b>POP</b>
+      <p>Remove the TOP element</p>
+    </div>
+
+    <div>
+      <b>PEEK</b>
+      <p>View TOP without removing</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  Stack Applications Lab – Data Structures
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
